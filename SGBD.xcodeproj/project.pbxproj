@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CA18E5921EF09BD400626D33 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = CA18E5911EF09BD400626D33 /* main.c */; };
+		CA18E59D1EF09ED600626D33 /* GED.c in Sources */ = {isa = PBXBuildFile; fileRef = CA18E59B1EF09ED600626D33 /* GED.c */; };
+		CA18E5A01EF09EE900626D33 /* GBP.c in Sources */ = {isa = PBXBuildFile; fileRef = CA18E59E1EF09EE900626D33 /* GBP.c */; };
+		CA18E5A31EF09EFB00626D33 /* GA.c in Sources */ = {isa = PBXBuildFile; fileRef = CA18E5A11EF09EFB00626D33 /* GA.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,13 @@
 /* Begin PBXFileReference section */
 		CA18E58E1EF09BD400626D33 /* SGBD */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SGBD; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA18E5911EF09BD400626D33 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		CA18E5991EF09DDE00626D33 /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
+		CA18E59B1EF09ED600626D33 /* GED.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GED.c; sourceTree = "<group>"; };
+		CA18E59C1EF09ED600626D33 /* GED.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GED.h; sourceTree = "<group>"; };
+		CA18E59E1EF09EE900626D33 /* GBP.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GBP.c; sourceTree = "<group>"; };
+		CA18E59F1EF09EE900626D33 /* GBP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBP.h; sourceTree = "<group>"; };
+		CA18E5A11EF09EFB00626D33 /* GA.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GA.c; sourceTree = "<group>"; };
+		CA18E5A21EF09EFB00626D33 /* GA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GA.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +67,40 @@
 		CA18E5901EF09BD400626D33 /* SGBD */ = {
 			isa = PBXGroup;
 			children = (
+				CA18E5A61EF09F2800626D33 /* GA */,
+				CA18E5A51EF09F1800626D33 /* GBP */,
+				CA18E5A41EF09F0700626D33 /* GED */,
 				CA18E5911EF09BD400626D33 /* main.c */,
+				CA18E5991EF09DDE00626D33 /* Data.h */,
 			);
 			path = SGBD;
+			sourceTree = "<group>";
+		};
+		CA18E5A41EF09F0700626D33 /* GED */ = {
+			isa = PBXGroup;
+			children = (
+				CA18E59B1EF09ED600626D33 /* GED.c */,
+				CA18E59C1EF09ED600626D33 /* GED.h */,
+			);
+			name = GED;
+			sourceTree = "<group>";
+		};
+		CA18E5A51EF09F1800626D33 /* GBP */ = {
+			isa = PBXGroup;
+			children = (
+				CA18E59F1EF09EE900626D33 /* GBP.h */,
+				CA18E59E1EF09EE900626D33 /* GBP.c */,
+			);
+			name = GBP;
+			sourceTree = "<group>";
+		};
+		CA18E5A61EF09F2800626D33 /* GA */ = {
+			isa = PBXGroup;
+			children = (
+				CA18E5A11EF09EFB00626D33 /* GA.c */,
+				CA18E5A21EF09EFB00626D33 /* GA.h */,
+			);
+			name = GA;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,7 +161,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA18E59D1EF09ED600626D33 /* GED.c in Sources */,
 				CA18E5921EF09BD400626D33 /* main.c in Sources */,
+				CA18E5A31EF09EFB00626D33 /* GA.c in Sources */,
+				CA18E5A01EF09EE900626D33 /* GBP.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +295,7 @@
 				CA18E5971EF09BD400626D33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -10,5 +10,20 @@
 #define GED_h
 
 #include <stdio.h>
+#include "Data.h"
+#include <stdlib.h>
+
+int initGED();
+Pagina *alocaPagina();
+int desalocaPagina(int pid);
+Pagina *leituraDePagina(int pid);
+int escritaPagina(Pagina *p);
+int closeGED();
+void contaLivres();
+void printHeapBlocos();
+//#####################
+void TesteEscreveArquivo();
+void TesteLeArquivo();
+
 
 #endif /* GED_h */
