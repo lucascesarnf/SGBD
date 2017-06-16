@@ -6,7 +6,16 @@
 //  Copyright © 2017 Lucas César  Nogueira Fonseca. All rights reserved.
 //
 
-/* O Gerenciador de espaço em disco tem tamanho fixo de 100 blocos setado na variável TM_MAX_BLOCOS, assim o tamanho do nosso disco é dado pela variável TM_MAX_BLOCOS. Para cada bloco o GED aloca um arquivo e guarda os dados do bloco neste arquivo, para emular o acesso aos pratos,cilindros e trilhas temos um heap de blocos heapBlocos[TM_MAX_BLOCOS], assim conseguimos abstrair esses detalhes e trabalhar com os blocos como se fossem indices. Assim o GA e o GBP trabalham apenas com as estruturas de dados levantadas pra eles sem se preocupar como estes dados são guardados na memória.
+/* 
+ 
+ O Gerenciador de espaço em disco tem tamanho fixo de 100 blocos setado na variável TM_MAX_BLOCOS,
+ assim o tamanho do nosso disco é dado pela variável TM_MAX_BLOCOS. Para cada bloco o GED aloca 
+ um arquivo e guarda os dados do bloco neste arquivo, para emular o acesso aos pratos,
+ cilindros e trilhas temos um heap de blocos heapBlocos[TM_MAX_BLOCOS], 
+ assim conseguimos abstrair esses detalhes e trabalhar com os blocos como se fossem indices.
+ Assim o GA e o GBP trabalham apenas com as estruturas de dados levantadas pra
+ eles sem se preocupar como estes dados são guardados na memória.
+ 
  */
 
 #include "GED.h"
