@@ -21,6 +21,9 @@ int escritaPagina(Pagina *p);
 int closeGED();
 void contaLivres();
 void printHeapBlocos();
+int blocosLivres();
+int blocosEmUso();
+
 //#####################
 void TesteEscreveArquivo();
 void TesteLeArquivo();

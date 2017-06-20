@@ -54,8 +54,7 @@ int main(int argc, char *argv[]){
   printHeapBlocos();
   printf("\n##[%d]##\n",desalocaPagina(p3->pid));
   printHeapBlocos();
-  
+  printf("\n\nBlocos em uso:%d\n\n",blocosEmUso());
   closeGED();
-  
   return 0;
 }

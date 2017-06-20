@@ -10,6 +10,7 @@
 #define Data_h
 
 #include <stdio.h>
+
 //################ C O N S T A N T E S#####################################
 
 #define TM_MAX_BLOCOS 100
@@ -41,14 +42,8 @@ typedef struct pagina{
 typedef struct lista_de_paginas{
   Pagina *pg;
   struct lista_de_paginas *prox;
+  struct lista_de_paginas *ant;
 }ListaDePaginas;
-
-//Header de páginas utilizado pelo arquivo:
-
-typedef struct headerPage{
-  ListaDePaginas *pgsLivres;
-  ListaDePaginas *pgsCheias;
-}HeaderPage;
 
 //Um Bloco de "disco":
 
@@ -67,9 +62,15 @@ typedef struct frame{
 
 //Arquivo:
 
-typedef struct arquivo {
+typedef struct diretorioDePaginas{
+  Pagina *endPage;
+  int slotsLivres;
+}DiretorioDePaginas;
+
+typedef struct arquivo{
   int aid;
-  HeaderPage header;
+  ListaDePaginas *pages;
+  DiretorioDePaginas dirt [TM_MAX_BLOCOS];
 }Arquivo;
 
 //
