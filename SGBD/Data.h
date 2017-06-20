@@ -55,7 +55,7 @@ typedef struct bloco{
 //Frame da memoria principal:
 
 typedef struct frame{
-  Pagina pag;
+  Pagina *pag;
   int pin_count;
   int dirty_bit;
 }Frame;

@@ -1,14 +1,16 @@
-//
-//  GBP.h
-//  SGBD
-//
-//  Created by Lucas César  Nogueira Fonseca on 13/06/17.
-//  Copyright © 2017 Lucas César  Nogueira Fonseca. All rights reserved.
-//
-
-#ifndef GBP_h
+//#ifndef GBP_h
 #define GBP_h
 
 #include <stdio.h>
+#include "Data.h"
+#include <stdlib.h>
+#include "GED.h"
 
-#endif /* GBP_h */
+void initFrame();
+int alocaFrame();
+int desalocaFrame(int pid);
+int PersistePagina(int pid);
+int BuscaEspacoLivre();
+void contaLivres();
+int LRU(int time[], int n);
+int PoliticaDeSubstituicao();
