@@ -28,6 +28,7 @@ void initGA(){
 // Cria Arquivo
 Arquivo *criaArquivo(){
   Arquivo a;
+  int local_livre=-1;
   ListaDePaginas *p = NULL;
   a.pages = p;
   for(int i = 0; i <TM_MAX_BLOCOS; i++){
@@ -36,11 +37,16 @@ Arquivo *criaArquivo(){
   }
   for(int i = 0; i <TM_MAX_BLOCOS; i++){
     if(heapArquivos[i] == 0){
-      data[i] = a;
       a.aid = i;
+      data[i] = a;
+      local_livre = i;
     }
   }
-  return &a;
+  if(local_livre != -1){
+  return &data[local_livre];
+  }else{
+    return NULL;
+  }
 }
 
 // Deleta arquivo, retorna -1 para página inesistente, 1 sucesso, 0 fracasso:

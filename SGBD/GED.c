@@ -120,7 +120,7 @@ Pagina *leituraDePagina(int pid){
     }else{
       fread(&b,sizeof(Bloco),1,file);
       blocos[pid]=b;
-      return &b.data;
+      return &blocos[pid].data;
     }
   }else{
     return NULL;

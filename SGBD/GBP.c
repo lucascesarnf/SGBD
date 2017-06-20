@@ -15,19 +15,19 @@ int alocaFrame(){
   
   if(numFramesLivres>0){
     
-    for(int i =0;i<TM_MAX_BLOCOS;i++){
+    for(int i = 0; i <TM_MAX_BLOCOS; i++){
       
       if(heapFrame[i]==0){
-        Pagina p = *alocaPagina();
-        if(p.pid != NULL){
-        	heapFrame[i] = p.pid;
-        	frames[i].pag = &p;
+        Pagina *p = alocaPagina();
+        if(p != NULL){
+        	heapFrame[i] = p->pid;
+        	frames[i].pag = p;
         	return 1;
         }
           else{
-          	return 0;}
+          	return 0;
+          }
         }
-        break;
       } 
     }
   return -1;
@@ -54,7 +54,7 @@ int desalocaFrame(int pid){
   Pagina *pag = frames[pid].pag;
 	int aux = frames[pid].dirty_bit;
 	if(aux == 1){
-		return escritaPagina(pag->pid);
+		return escritaPagina(pag);
 	}
 	else{
 		return -1;
@@ -99,7 +99,7 @@ int LRU(int time[], int n){
 
 int PoliticaDeSubstituicao()
 {
-    int no_of_frames = TM_MAX_BLOCOS , no_of_pages = TM_MAX_BLOCOS, frames[10], pages[30], count = 0, time[10], flag1, flag2, i, j, pos, faults = 0;
+    int no_of_frames = TM_MAX_BLOCOS , no_of_pages = TM_MAX_BLOCOS, frames[10], pages[30], count = 0, time[10], flag1, flag2, i, j, pos = 0, faults = 0;
     
     for(i = 0; i < no_of_frames; ++i){
         frames[i] = -1;
