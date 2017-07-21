@@ -19,7 +19,7 @@ Arquivo *criaArquivo();
 int deletaArquivo(int aid);
 Arquivo *buscaArquivo(int aid);
 int insereRegistro(int aid , Registro r);
-int removeRegistro(int aid ,int pid, int rid);
+int removeRegistro(int aid , int rid);
 Pagina *buscaRegistro(int rid, int aid);
 
 #endif /* GA_h */

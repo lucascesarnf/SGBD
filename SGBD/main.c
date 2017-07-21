@@ -17,6 +17,7 @@
 #include <stdio.h>
 #include "Data.h"
 #include "GED.h"
+#include "GA.h"
 int main(int argc, char *argv[]){
   // insert code here...
   /*
@@ -29,6 +30,8 @@ int main(int argc, char *argv[]){
   printf("ID:(%d),%s, %d\n",(*reg).rid,(*reg).nome, (*reg).idade);
   */
   initGED();
+  initGA();
+  /*
   Pagina *p1,*p2,*p3,*p4;
   p1 = alocaPagina();
   if(p1!=NULL){
@@ -55,6 +58,53 @@ int main(int argc, char *argv[]){
   printf("\n##[%d]##\n",desalocaPagina(p3->pid));
   printHeapBlocos();
   printf("\n\nBlocos em uso:%d\n\n",blocosEmUso());
+  */
+  
+  //Cria Arquivos:
+  Arquivo arq1 = *criaArquivo();
+  printf("\nId arq:%d\n",arq1.aid);
+  Arquivo arq2 = *criaArquivo();
+  printf("\nId arq:%d\n",arq2.aid);
+  
+  //Registro1:
+    Registro r1;
+    r1.idade = 18;
+    strcpy(r1.nome,"Lucas César");
+    r1.rid = 0;
+  //Registro2:
+    Registro r2;
+    r2.idade = 19;
+    strcpy(r2.nome,"Fulaninho de Tal");
+    r2.rid = 1;
+  //Registro3:
+    Registro r3;
+    r3.idade = 18;
+    strcpy(r3.nome,"Joãozinho");
+    r3.rid = 2;
+  //Registro4:
+    Registro r4;
+    r4.idade = 19;
+    strcpy(r4.nome,"Branquinho");
+    r4.rid = 3;
+  
+  //Insere no Arquivo 1:
+  printf("\n##[%d]##\n",insereRegistro(arq1.aid, r1));
+  printf("\n##[%d]##\n",insereRegistro(arq1.aid, r2));
+  printf("\n##[%d]##\n",insereRegistro(arq1.aid, r3));
+  printf("\n##[%d]##\n",insereRegistro(arq1.aid, r4));
+  //Insere no Arquivo 2:
+  printf("\n##[%d]##\n",insereRegistro(arq2.aid, r3));
+  printf("\n##[%d]##\n",insereRegistro(arq2.aid, r4));
+  
+  printPaginasNaMemoria();
+  //Remove no Arquivo 1:
+  printf("\n##[%d]##\n",removeRegistro(arq1.aid, r3.rid));
+  printf("\n##[%d]##\n",removeRegistro(arq1.aid, 7));
+  
+  printPaginasNaMemoria();
+ // printHeapBlocos();
   closeGED();
+  
+  
   return 0;
 }

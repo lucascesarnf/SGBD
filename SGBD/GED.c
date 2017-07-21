@@ -63,16 +63,18 @@ Pagina *alocaPagina(){
           printf("Não foi possível alocar página");
           return NULL;
         }else{
-          fwrite(&b, sizeof(Bloco), 1, file);
-          fclose(file);
           heapBlocos[i] = 1;
           b.end = i;
           b.data.pid = i;
-          blocos[i] = b;
           for(int i =0; i< TM_MAX_REGISTROS ;i++){
             b.data.diretorio[i] = 0;
           }
+          blocos[i] = b;
           contaLivres();
+          
+          fwrite(&b, sizeof(Bloco), 1, file);
+          fclose(file);
+          
           return &blocos[i].data;
         }
         break;
@@ -98,6 +100,9 @@ int desalocaPagina(int pid){
     if(t == 0){
       printf("\nRemoveu\n");
       heapBlocos[pid]=0;
+      for(int i = 0; i < TM_MAX_REGISTROS;i++){
+        blocos[pid].data.diretorio[i]=0;
+      }
       contaLivres();
       return 1;
     }else{
@@ -134,6 +139,7 @@ int escritaPagina(Pagina *p){
     Bloco b;
     b.end = p->pid;
     b.data = *(p);
+    blocos[p->pid].data = *p;
     FILE *file;
     char file_name[20];
     sprintf(file_name, "bloco%d.txt",b.end);
@@ -199,11 +205,39 @@ void printHeapBlocos(){
   }
   printf("\n");
 }
+void printHeapRegistros(int pid){
+  printf("\nRegistro P[%d]\n",pid);
+  for(int i = 0;i<TM_MAX_REGISTROS; i++){
+    if(i%10 == 0){
+      printf("\n");
+    }
+    printf("%d|",blocos[pid].data.diretorio[i]);
+  }
+  printf("\n");
+}
 int blocosLivres(){
   return numBlocosLivres;
 }
 int blocosEmUso(){
   return TM_MAX_BLOCOS - numBlocosLivres;
+}
+
+void printPaginasNaMemoria(){
+  for(int i = 0; i< TM_MAX_BLOCOS; i++){
+    if(heapBlocos[i]==1){
+      //printHeapRegistros(i);
+      printf("\n\n*******Página[%d]********\n",blocos[i].end);
+      
+      for(int j = 0; j <TM_MAX_REGISTROS; j++){
+        if(blocos[i].data.diretorio[j]==1){
+          printf("\nRegistro[%d]:%s\n",blocos[i].data.data[j].rid,blocos[i].data.data[j].nome);
+         // printf("\nRegistro[%d]:%s\n",blocos[i].data.data->rid,blocos[i].data.data->nome);
+        }
+      }
+      printf("\n\n*************************\n");
+    }
+  }
+  
 }
 //########### E X E M P L O S  DE  A R Q U I V O S ############################################
 void TesteEscreveArquivo(){
