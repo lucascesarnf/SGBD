@@ -196,7 +196,7 @@ void contaLivres(){
   }
 }
 void printHeapBlocos(){
-  printf("\n");
+  printf("\n########## DISCO ##########\n");
   for(int i = 0;i<TM_MAX_BLOCOS; i++){
     if(i%10 == 0){
       printf("\n");
@@ -213,7 +213,7 @@ void printHeapRegistros(int pid){
     }
     printf("%d|",blocos[pid].data.diretorio[i]);
   }
-  printf("\n");
+  printf("\n###########################");
 }
 int blocosLivres(){
   return numBlocosLivres;
@@ -226,7 +226,7 @@ void printPaginasNaMemoria(){
   for(int i = 0; i< TM_MAX_BLOCOS; i++){
     if(heapBlocos[i]==1){
       //printHeapRegistros(i);
-      printf("\n\n*******Página[%d]********\n",blocos[i].end);
+      printf("\n\n*******Página[%d]********\n",i);
       
       for(int j = 0; j <TM_MAX_REGISTROS; j++){
         if(blocos[i].data.diretorio[j]==1){

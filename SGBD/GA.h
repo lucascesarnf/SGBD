@@ -12,7 +12,7 @@
 #include <stdio.h>
 
 #include "Data.h"
-#include "GED.h"
+#include "GBP.h"
 
 void initGA();
 Arquivo *criaArquivo();

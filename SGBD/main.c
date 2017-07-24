@@ -18,6 +18,7 @@
 #include "Data.h"
 #include "GED.h"
 #include "GA.h"
+#include "GBP.h"
 int main(int argc, char *argv[]){
   // insert code here...
   /*
@@ -31,6 +32,7 @@ int main(int argc, char *argv[]){
   */
   initGED();
   initGA();
+  initGBP();
   /*
   Pagina *p1,*p2,*p3,*p4;
   p1 = alocaPagina();
@@ -87,6 +89,31 @@ int main(int argc, char *argv[]){
     strcpy(r4.nome,"Branquinho");
     r4.rid = 3;
   
+  Pagina *p1 = novaPagina();
+  printMemoria();
+  Pagina *p2 = novaPagina();
+  printMemoria();
+  Pagina *p3 = novaPagina();
+  printMemoria();
+  Pagina *p4 = novaPagina();
+  printMemoria();
+  Pagina *p5 = novaPagina();
+  printMemoria();
+  printFila();
+  Pagina *p6 = novaPagina();
+  printMemoria();
+  printFila();
+  //sequencial flooding:
+  Pagina *p7 = novaPagina();
+  printMemoria();
+  printFila();
+  
+  
+  Pagina *p8 = getPage(1);
+  printMemoria();
+  printFila();
+  
+
   //Insere no Arquivo 1:
   printf("\n##[%d]##\n",insereRegistro(arq1.aid, r1));
   printf("\n##[%d]##\n",insereRegistro(arq1.aid, r2));
@@ -103,6 +130,8 @@ int main(int argc, char *argv[]){
   
   printPaginasNaMemoria();
  // printHeapBlocos();
+   
+
   closeGED();
   
   

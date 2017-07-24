@@ -15,6 +15,8 @@
 
 #define TM_MAX_BLOCOS 100
 #define TM_MAX_REGISTROS 100
+#define TM_MAX_FRAMES 5
+
 #define PERSIST_GED "initGED.txt"
 
 //################ S T R U C T S ##########################################

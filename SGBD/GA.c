@@ -88,14 +88,14 @@ int insereRegistro(int aid , Registro r){
     for(int i = 0;i<TM_MAX_BLOCOS;i++){
       if(data[aid].dirt[i].slotsLivres > 0){
         if(data[aid].dirt[i].endPage == NULL){
-          Pagina *pg = alocaPagina();
+          Pagina *pg = novaPagina();
           if(pg != NULL){
             data[aid].dirt[i].endPage = pg;
             for(int j = 0; j< TM_MAX_REGISTROS; j++){
               if(data[aid].dirt[i].endPage->diretorio[j]==0){
                 data[aid].dirt[i].endPage->data[j] = r;
                 data[aid].dirt[i].endPage->diretorio[j] = 1;
-                escritaPagina(data[aid].dirt[i].endPage);
+                liberaPage(data[aid].dirt[i].endPage->pid,1);
                 return 1;
               }
             }
@@ -105,7 +105,7 @@ int insereRegistro(int aid , Registro r){
             if(data[aid].dirt[i].endPage->diretorio[j]==0){
               data[aid].dirt[i].endPage->data[j] = r;
               data[aid].dirt[i].endPage->diretorio[j] = 1;
-              escritaPagina(data[aid].dirt[i].endPage);
+              liberaPage(data[aid].dirt[i].endPage->pid,1);
               return 1;
             }
           }
